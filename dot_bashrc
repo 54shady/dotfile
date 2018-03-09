@@ -78,7 +78,7 @@ find_git_branch () {
 						git_branch=''
 }
 
-PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
+PROMPT_COMMAND="find_git_branch"
 
 # Here is bash color codes you can use
 black=$'\[\e[1;30m\]'
