@@ -3,9 +3,19 @@
 	name = zeroway
 [core]
 	editor = vim
+	whitespace = cr-at-eol
+	pager = less -x 1,5
 [color]
 	ui = auto
 	status = auto
 	diff = auto
 	branch = auto
 	interactive = auto
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
