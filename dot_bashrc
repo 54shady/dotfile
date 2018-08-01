@@ -19,15 +19,14 @@ fi
 # .bashrc
 
 # User specific aliases and functions
-
 alias rm='rm -rvf'
 alias ll='ls -laF'
 alias cp='cp -rf'
 alias mv='mv -i'
-alias vd='vimdiff -S ~/.vim/colors/morning.vim'
+alias vd='vimdiff -S ~/.vim/colors/torte.vim'
 alias vi='vim'
 alias g='vim -t'
-alias gl='git log --pretty=format:"%h : %s" --no-merges'
+alias gl='git log --pretty="%h - %s" --no-merges'
 alias glp='git log -p --no-merges'
 alias gw='git whatchanged --oneline'
 alias gs='git status'
@@ -35,19 +34,11 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gb='git branch'
 alias gch='git checkout HEAD'
-alias gp='grep --colour=auto --exclude=tags --exclude-dir=*.git'
+alias gp='grep --colour=auto --exclude=tags --exclude-dir=*.git --exclude=*.swp'
 alias tm='tmux attach-session -t zeroway'
-#alias fs='sudo fastboot flash system system.img'
-#alias fb='sudo fastboot flash boot boot.img'
-alias fastboot='sudo fastboot'
-alias fr='sudo fastboot reboot'
 alias adbs='adb shell'
 alias adbr='adb root && adb wait-for-device && adb remount && adb shell mount -o remount rw /'
 alias minicom='sudo minicom'
-alias dnw='sudo dnw'
-alias flash_kernel='sudo upgrade_tool di -k'
-alias flash_sd='sudo upgrade_tool sd'
-alias flash_reboot='sudo upgrade_tool rd'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -59,24 +50,26 @@ fi
 #git branch show in the shell prompt
 find_git_branch () {
 	local dir=. head
-		until [ "$dir" -ef / ]; do
+
+	until [ "$dir" -ef / ]; do
 		if [ -f "$dir/.git/HEAD" ]; then
 			head=$(< "$dir/.git/HEAD")
-				if [[ $head = ref:\ refs/heads/* ]]; then
-								 git_branch=" (${head#*/*/})"
-#git_branch=" ? ${head#*/*/}"
-					elif [[ $head != '' ]]; then
-						git_branch=" ((detached))"
-#git_branch=" ? (detached)"
-				else
-					git_branch=" ((unknow))"
-#git_branch=" ? (unknow)"
-						fi
-						return
-						fi
-						dir="../$dir"
-						done
-						git_branch=''
+
+			if [[ $head = ref:\ refs/heads/* ]]; then
+				git_branch=" (${head#*/*/})"
+			elif [[ $head != '' ]]; then
+				git_branch=" ((detached))"
+			else
+				git_branch=" ((unknow))"
+			fi
+
+			return
+		fi
+
+		dir="../$dir"
+	done
+
+	git_branch=''
 }
 
 PROMPT_COMMAND="find_git_branch"
@@ -98,15 +91,6 @@ complete -cf sudo
 
 # for firefly-rk3399
 export PATH=$PATH:/home/zeroway/rk3399/tool/gcc-linaro-4.9.4-2017.01-i686_aarch64-linux-gnu/bin
-
-# for kernel 4.4.0 gcc 4.8.3
-#export PATH=$PATH:/opt/toolschain/usr/local/arm/arm-2014.05/bin
-
-#for arm-linux-gcc 4.5.1 friendlyarm tiny4412
-#export PATH=$PATH:/opt/toolschain/usr/local/arm/4.5.1/bin
-
-#for arm-linux-gcc 4.3.2 for mini2440
-export PATH=$PATH:/opt/toolschain/usr/local/arm/4.3.2/bin
 
 # openJDK7 for android 5.1
 JAVA_HOME=/opt/java-7-openjdk-amd64/
@@ -135,8 +119,4 @@ export PATH=$PATH:/home/zeroway/android-studio/bin:/opt/android-sdk-linux/platfo
 # make normal user can excute the sbin tools
 export PATH=$PATH:/sbin:/usr/sbin
 
-# make android tool in the path
-export PATH=$PATH:/home/zeroway/rk3399/src/firefly/out/host/linux-x86/bin
-
-# torch
-export PATH=$PATH:/home/zeroway/github/distro/install/bin
+export EDITOR=/usr/bin/vim
