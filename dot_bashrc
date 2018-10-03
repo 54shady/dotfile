@@ -120,3 +120,4 @@ export PATH=$PATH:/home/zeroway/android-studio/bin:/opt/android-sdk-linux/platfo
 export PATH=$PATH:/sbin:/usr/sbin
 
 export EDITOR=/usr/bin/vim
+export LANG="en_US.UTF-8"
