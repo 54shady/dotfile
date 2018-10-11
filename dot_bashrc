@@ -93,16 +93,16 @@ complete -cf sudo
 export PATH=$PATH:/home/zeroway/rk3399/tool/gcc-linaro-4.9.4-2017.01-i686_aarch64-linux-gnu/bin
 
 # openJDK7 for android 5.1
-JAVA_HOME=/opt/java-7-openjdk-amd64/
-export JRE_HOME=/opt/java-7-openjdk-amd64/bin/jre
-export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
-export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+# JAVA_HOME=/opt/java-7-openjdk-amd64/
+# export JRE_HOME=/opt/java-7-openjdk-amd64/bin/jre
+# export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+# export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 # openJDK8
-#JAVA_HOME=/opt/java-8-openjdk-amd64/
-#export JRE_HOME=/opt/java-8-openjdk-amd64/bin/jre
-#export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
-#export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+JAVA_HOME=/home/zeroway/tools/usr/lib/jvm/java-8-openjdk-amd64
+export JRE_HOME=/home/zeroway/tools/usr/lib/jvm/java-8-openjdk-amd64/bin/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 # oracle JDK for android studio
 #JAVA_HOME=/opt/jdk1.8.0_77
@@ -111,7 +111,7 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 #export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 # add for mytools
-export PATH=$PATH:/home/zeroway/Tools
+export PATH=$PATH:/home/zeroway/tools
 
 # add for android studio
 export PATH=$PATH:/home/zeroway/android-studio/bin:/opt/android-sdk-linux/platform-tools
@@ -121,3 +121,7 @@ export PATH=$PATH:/sbin:/usr/sbin
 
 export EDITOR=/usr/bin/vim
 export LANG="en_US.UTF-8"
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
