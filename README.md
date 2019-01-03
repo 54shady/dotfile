@@ -4,6 +4,10 @@ Download the source code
 
 	git clone https://github.com/54shady/dotfile.git ~/.dotfile
 
+Install Tmux Plugin Manager
+
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 Make links to the target file
 
 	ln -s ~/.dotfile/dot_bashrc ~/.bashrc
@@ -14,3 +18,5 @@ Make links to the target file
 	ln -s ~/.dotfile/dot_bash_profile ~/.bash_profile
 	ln -s ~/.dotfile/dot_xinitrc ~/.xinitrc
 	ln -s ~/.dotfile/dot_xsession ~/.xsession
+	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
+	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
