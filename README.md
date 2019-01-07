@@ -1,5 +1,7 @@
 # Usage
 
+## Download and Install
+
 Download the source code
 
 	git clone https://github.com/54shady/dotfile.git ~/.dotfile
@@ -7,6 +9,8 @@ Download the source code
 Install Tmux Plugin Manager
 
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+## Make Links
 
 Make links to the target file
 
@@ -20,3 +24,15 @@ Make links to the target file
 	ln -s ~/.dotfile/dot_xsession ~/.xsession
 	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
 	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
+
+## WebSearch in Terminal Mode
+
+Quick search in terminal using hotkey 's'
+
+	ln -s ~/.dotfile/web_search ~/tools/s
+
+Export the path of tools directory
+
+Example for search "gentoo linux"
+
+	$ s gentoo linux
