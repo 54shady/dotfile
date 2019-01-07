@@ -21,4 +21,4 @@ ${DEFAULT_BROWSER} ${DEFAULT_SEARCH_ENGINE}"${search_keys}"
 # which define in i3 config file as below
 # set $workspace2 ""
 # assign [class="Firefox"] $workspace2
-i3-msg workspace ""
+i3-msg -q workspace ""
