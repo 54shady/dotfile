@@ -25,7 +25,7 @@ Make links to the target file
 	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
 	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
 
-## WebSearch in Terminal Mode
+## Do web search in terminal
 
 Quick search in terminal using hotkey 's'
 
@@ -36,3 +36,14 @@ Export the path of tools directory
 Example for search "gentoo linux"
 
 	$ s gentoo linux
+
+## Quick translate in terminal
+
+Make a link(the first charactor of translate)
+
+	ln -s ~/.dotfile/youdaofanyi.py ~/tools/t
+
+Translate using youdao online dictionary
+
+	$ t hello world
+	$ t 'have a nice day'
