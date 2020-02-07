@@ -113,6 +113,7 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 # add for mytools
 export PATH=$PATH:/home/zeroway/tools
+export PATH=$PATH:/home/zeroway/holdall
 
 # add for android studio
 export PATH=$PATH:/home/zeroway/android-studio/bin:/opt/android-sdk-linux/platform-tools
@@ -122,10 +123,10 @@ export PATH=$PATH:/sbin:/usr/sbin
 
 export EDITOR=/usr/bin/vim
 export LANG="en_US.UTF-8"
-export XMODIFIERS="@im=fcitx"
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
-eval "$(dbus-launch --sh-syntax --exit-with-session)"
+#export XMODIFIERS="@im=fcitx"
+#export QT_IM_MODULE=fcitx
+#export GTK_IM_MODULE=fcitx
+#eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
 # auto run tmux when launch the shell
 # do not confilct with the tty1 when login
