@@ -24,6 +24,13 @@ Make links to the target file
 	ln -s ~/.dotfile/dot_xsession ~/.xsession
 	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
 	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
+	ln -s ~/.dotfile/dot_Xresources ~/.Xresources
+
+### basic comcept
+
+login fromm tty1 work flow(Xresources should load before i3wm)
+
+	.bash_profile ==> startx ==> .xinitrc ==> i3wm
 
 ## Do web search in terminal
 
