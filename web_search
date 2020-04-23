@@ -4,7 +4,7 @@
 DEFAULT_SEARCH_ENGINE="https://www.baidu.com/s?wd="
 
 # using firefox as default browser
-DEFAULT_BROWSER="firefox"
+DEFAULT_BROWSER="firefox-bin"
 
 # parse search key
 until [ $# -eq 0 ]

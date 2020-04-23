@@ -5,3 +5,10 @@
 if [[ -f ~/.bashrc ]] ; then
 	. ~/.bashrc
 fi
+
+#unset -v HOME
+if shopt -q login_shell; then
+	[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && exec startx
+else
+	exit 1
+fi
