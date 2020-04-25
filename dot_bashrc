@@ -69,6 +69,9 @@ find_git_branch () {
 	done
 
 	git_branch=''
+
+	# other prompt command
+	history -a
 }
 
 PROMPT_COMMAND="find_git_branch"
@@ -118,4 +121,3 @@ export HISTCONTROL=erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=20000
 shopt -s histappend
-PROMPT_COMMAND='history -a'
