@@ -1,5 +1,43 @@
 # Usage
 
+## Basic Comcept
+
+### xprofile
+
+~/.xprofile和/etc/xprofile的加载顺序在X session前即在(WindowManager)前
+
+xprofile被下面的DisplayManager加载
+
+- GDM(/etc/gdm/Xsession)
+- LightDM(/etc/lightdm/Xsession)
+- LXDM(/etc/lxdm/Xsession)
+- SDDM
+
+如果使用了DM的情况下加载顺序如下
+
+	DM--> source xprofile --> WM
+
+如果不使用DM的话xprofile还可以被下面程序加载
+
+- startx
+- xinit
+- XDM
+- 其他使用~/.xsession或~/.xinitrc的DM
+
+~/.xinitrc and /etc/X11/xinit/xinitrc
+
+	#!/bin/sh
+
+	# Make sure this is before the 'exec' command or it won't be sourced.
+	[ -f /etc/xprofile ] && . /etc/xprofile
+	[ -f ~/.xprofile ] && . ~/.xprofile
+
+### 使用startx来启动xinitrc
+
+login fromm tty1 work flow(Xresources should load before i3wm)
+
+	.bash_profile ==> startx ==> .xinitrc ==> i3wm
+
 ## Download and Install
 
 Download the source code
@@ -25,12 +63,6 @@ Make links to the target file
 	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
 	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
 	ln -s ~/.dotfile/dot_Xresources ~/.Xresources
-
-### basic comcept
-
-login fromm tty1 work flow(Xresources should load before i3wm)
-
-	.bash_profile ==> startx ==> .xinitrc ==> i3wm
 
 ## Do web search in terminal
 

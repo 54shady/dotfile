@@ -1,5 +1,9 @@
 # load the X resources before i3wm
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+# Make sure this is before the 'exec' command or it won't be sourced.
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+
 # Use 25 MiB of RAM for debug logs
 exec i3 --shmlog-size=26214400
