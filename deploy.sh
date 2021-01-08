@@ -10,6 +10,7 @@ programs=(
 "dunst"
 "zathura"
 "mpv"
+"qutebrowser"
 ".toprc"
 ".bashrc"
 ".gitconfig"
