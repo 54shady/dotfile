@@ -1,5 +1,9 @@
 c.tabs.position = "bottom"
+
+# ~/.local/share/qutebrowser/sessions/myqbsession.yml
 c.auto_save.session = True
+c.session.default_name = "myqbsession"
+
 c.url.searchengines = {
     "DEFAULT": "https://www.baidu.com/s?wd={}",
     "awk": "https://wiki.archlinux.org/?search={}",
