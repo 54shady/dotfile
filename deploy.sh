@@ -11,6 +11,16 @@ programs=(
 "zathura"
 "mpv"
 ".toprc"
+".bashrc"
+".gitconfig"
+".tmux.conf"
+".xprofile"
+".bash_profile"
+".xinitrc"
+".xsession"
+".url_handler"
+".extract_urlview"
+".Xresources"
 )
 
 for d in ${programs[@]}
@@ -21,6 +31,7 @@ do
 		rm -rvf $DEFAULT_DIR
 		# link to the real config dir
 		ln -s $PWD/$d $HOME/.config/$d
+	# link the ~/.target to ~/.dotfile/dot_target
 	elif [ -f ~/$d ]; then
 		rm -rvf ~/$d
 		ln -s $PWD/dot_${d##.} ~/$d

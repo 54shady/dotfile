@@ -50,19 +50,7 @@ Install Tmux Plugin Manager
 
 ## Make Links
 
-Make links to the target file
-
-	ln -s ~/.dotfile/dot_bashrc ~/.bashrc
-	ln -s ~/.dotfile/dot_gitconfig ~/.gitconfig
-	ln -s ~/.dotfile/dot_tmux.conf ~/.tmux.conf
-	ln -s ~/.dotfile/dot_xprofile ~/.xprofile
-	ln -s ~/.dotfile/dot_vimperatorrc ~/.vimperatorrc
-	ln -s ~/.dotfile/dot_bash_profile ~/.bash_profile
-	ln -s ~/.dotfile/dot_xinitrc ~/.xinitrc
-	ln -s ~/.dotfile/dot_xsession ~/.xsession
-	ln -s ~/.dotfile/dot_url_handler.sh ~/.url_handler.sh
-	ln -s ~/.dotfile/dot_extract_urlview ~/.extract_urlview
-	ln -s ~/.dotfile/dot_Xresources ~/.Xresources
+Make links to the target file using [deply.sh](deploy.sh)
 
 ## Do web search in terminal
 
