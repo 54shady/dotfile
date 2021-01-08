@@ -1,0 +1,379 @@
+# using xmodmap to figure out
+# mode1 = Alt key
+# mode = win key
+#
+# Super key(mod4 =windows logo key/Command key)
+set $mod Mod4
+
+# global variables
+# using xrandr to figure out display name
+set $display_device_name "HDMI2"
+set $terminal_name "st"
+set $browsers_name "qutebrowser"
+set $mail_client "thunderbird"
+
+#exec --no-startup-id xcompmgr &
+#exec --no-startup-id mate-power-manager
+exec --no-startup-id nm-applet
+exec --no-startup-id fcitx
+exec --no-startup-id sxhkd
+exec --no-startup-id ck-launch-session
+#exec --no-startup-id ibus
+#exec --no-startup-id megasync
+#exec --no-startup-id redshift
+#exec --no-startup-id blueman-applet
+#exec --no-startup-id ss-qt5
+
+# dmenu settings
+#bindsym $mod+d exec --no-startup-id dmenu_run -fn monaco-13 -l 5
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# rofi mode (run, drun) using "ctrl_tab" to switch
+bindsym $mod+d exec rofi -modi "run#drun" -show run
+#bindsym $mod+d exec rofi -modi "run#drun" -show run -font "monaco 14" -width 25 -lines 5
+#bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 500 -opacity "80" -bw 0 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 2 -font "System San Francisco Display 18" -hlfg "#9575cd"
+
+# terminal
+bindsym $mod+Return exec --no-startup-id $terminal_name
+# xfce drop down terminal
+#bindsym mod1+slash exec xfce4-terminal --drop-down
+
+# printscreen--scrot(Print=PrtSc/PrintScreen)
+# bindsym $mod+Print exec scrot
+
+# GUI file manager
+#bindsym $mod+e exec thunar
+#bindsym $mod+e exec --no-startup-id thunar
+
+# app finder
+#bindsym mod1+F2 exec --no-startup-id xfce4-appfinder
+
+# bar toggle, hide or show
+bindsym $mod+m bar mode toggle
+
+# window gap
+#gaps inner 8
+#gaps outer 5
+#smart_gaps on
+
+# new window
+new_window none
+new_float normal
+hide_edge_borders both
+
+# window colors
+#  class                 border   backgr.  text  indicator  child_border
+client.focused          #4c7899  #285577  #ffffff  #2e9ef4   #285577
+client.focused_inactive #81c2d6  #5f676a  #ffffff  #484e50   #0b6e48
+client.unfocused        #c9cabb  #222222  #888888  #292d2e   #222222
+client.urgent           #2f343a  #900000  #ffffff  #199475   #900000
+client.placeholder      #a2b4ba  #0c0c0c  #ffffff  #1793d0   #0c0c0c
+client.background       #82abba
+
+# popups
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# float programs(find the programs'names in "/usr/share/applictions")
+for_window [class="Xfce4-terminal"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Gimp"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Genymotion"] floating enable
+for_window [class="Vlc"] floating enable
+#for_window [class="VirtualBox"] floating enable
+#for_window [class="Thunar"] floating enable
+for_window [class="shadowsocks-qt5"] floating enable
+for_window [class="Catfish"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="XTerm"] floating enable
+
+# wallpaper static mode
+#exec --no-startup-id feh --bg-scale "~/Pictures/wallpapers/wallpaper.jpg"
+#exec_always feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
+
+# random mode
+#exec --no-startup-id  ~/.config/i3/wallpaper.sh &
+
+# font
+font pango:monaco 13
+
+# bar configuration
+bar {
+    #status_command i3status
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+    position top
+    mode dock
+    #workspace_buttons yes
+    #tray_padding 0
+    #separator_symbol "|"
+    #tray_padding 0
+    #separator_symbol "|"
+
+    colors {
+    background #285477
+    statusline #dedede
+    separator #2d2d2d
+    focused_workspace #636e88 #285de7 #dedfdg
+    active_workspace #556677 #234567 #56ef67
+    inactive_workspace #636d72 #2d2d2d #dedede
+    urgent_workspace #ffffff #900000 #d23d32
+    }
+}
+
+# tray icons(use "xrandr" to find out the screen name)
+#exec --no-startup-id xrandr --output $primary_screen --primary
+
+# external display device(use the command "xrandr" to see the display device name)
+# exec --no-startup-id xrandr --output HDMI1 1920*1080 --right-of DP-1
+
+# Workspace names
+#workspace "1:Arch" output DP-1
+#workspace "2:Web" output DP-1
+#workspace "3:Code" output DP-1
+#workspace "9:Mail" output DP-1
+
+# assign specific application to specific workspaces
+# use "xprop" the find the class
+# WM_CLASS(STRING) will printout the class name
+# bind terminal to workspace1
+assign [class="konsole"] $workspace1
+
+# bind browser to workspace2
+assign [class="Firefox"] $workspace2
+assign [class="qutebrowser"] $workspace2
+
+# bind mail to workspace3
+assign [class="Thunderbird"] $workspace3
+
+# bind virtual box to workspace4
+assign [class="VirtualBox"] $workspace4
+
+# bind vlc to workspace5
+assign [class="Vlc"] $workspace5
+
+# switch to near workspace
+bindsym $mod+Tab workspace next
+bindsym mod1+Tab workspace prev
+
+set $workspace1 ""
+set $workspace2 ""
+set $workspace3 ""
+set $workspace4 ""
+set $workspace5 ""
+set $workspace10 ""
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# kill focused window($mod1=Alt)
+#bindsym mod1+F4 kill
+bindsym $mod+q kill
+
+# hide | show window(minus is "-" and plus is "+".)
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+c layout toggle split
+
+# change border style
+bindsym $mod+u border none
+bindsym $mod+n border normal
+# bindsym $mod+o border 1pixel
+bindsym $mod+b border toggle
+
+# window focus
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# foucus follows mouse(cursor)
+focus_follows_mouse yes
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# focus the parent container
+# bindsym $mod+$mod4+p focus parent
+
+## mpc hotkey for mpd ##
+# toggle audio pause
+bindsym $mod+p exec --no-startup-id "mpc toggle"
+# change to next/previous track
+bindsym $mod+comma exec --no-startup-id "mpc prev"
+bindsym $mod+period exec --no-startup-id "mpc next"
+# restart track
+bindsym $mod+slash exec --no-startup-id "mpc seek 0%"
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Use Mouse+$mod to drag a floating window
+floating_modifier $mod
+
+# move floating/tiling window
+bindsym $mod+Shift+h move left 30 px
+bindsym $mod+Shift+j move down 30 px
+bindsym $mod+Shift+k move up 30 px
+bindsym $mod+Shift+l move right 30 px
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split window horizontal orientation
+bindsym $mod+Shift+v split h
+# split window vertical orientation
+bindsym $mod+v split v
+
+# resize window
+bindsym $mod+r mode "resize"
+
+#resize shortcuts (also you can use the mouse for resizing)
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+    #same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Using xev to figure out the keysym
+# volume control
+# mod + PgUp to increase the volume
+# mod + PgDn to decrease the volume
+# mod + Delete to mute toggle
+bindsym $mod+Prior exec --no-startup-id "amixer -c 0 -q set Master 2dB+ unmute; sh ~/.config/i3/show_volume.sh"
+bindsym $mod+Next exec --no-startup-id "amixer -c 0 -q set Master 2dB- unmute; sh ~/.config/i3/show_volume.sh"
+bindsym $mod+Delete exec --no-startup-id "amixer -q set Master toggle; sh ~/.config/i3/show_volume.sh"
+
+# power manager
+# Alt+shift+q+[l | e | r | o | esc]
+set $mode_system select: lock(L) exit(E) reboot(R) poweroff(O) cancel(Esc)
+bindsym $mod+Shift+q mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock -c '#000000', mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym o exec --no-startup-id poweroff, mode "default"
+    bindsym Escape mode "default"
+}
+
+# screen off | sleep | shutdown(time unit: seconds)
+#exec --no-startup-id xset dpms 300 1357 6789
+exec --no-startup-id xset dpms 365 1357
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# restart i3 inplace
+bindsym $mod+Shift+s restart
+
+# i3lock
+mode "i3lock: Return to lock/Escape to Cancel" {
+		bindsym Return mode "default" exec i3lock -I 600 -i /usr/share/wallpapers/lock/lock.jpg
+		bindsym Escape mode "default"
+}
+
+bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
+
+# exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# auto start applications
+exec_always $terminal_name
+exec_always $browsers_name
+#exec_always "vlc"
+#exec_always $mail_client
+
+# Take a screenshot upon pressing $mod+x (select an area)
+bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
+
+# Automatic back-and-forth when switching to the current workspace
+# toggle between the lastest two workspace
+workspace_auto_back_and_forth yes
+
+# move a window to a specific workspace and immediately switch to that workspace
+bindsym $mod+o move container to workspace $workspace10; workspace $workspace10
+
+# opups during fullscreen mode
+popup_during_fullscreen smart
+
+# brightness control
+#bindsym ctrl+Mod1+k exec "xbacklight +10; sh ~/.config/i3/show_brightness.sh"
+#bindsym ctrl+Mod1+j exec "xbacklight -10; sh ~/.config/i3/show_brightness.sh"
+
+# Key indicators
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+# toggle on/off the screenkey
+bindsym $mod+Scroll_Lock exec --no-startup-id "killall screenkey || screenkey"
+
+# open htop using xterm
+bindsym ctrl+Shift+Escape exec --no-startup-id xterm -geometry 200x50 -e htop
+
+# open music box(ncmpcpp)
+bindsym ctrl+$mod+m exec --no-startup-id xterm -geometry 150x30 -fs 55 -e ncmpcpp
+
+# holdall settings
+# unicode emoji picker(grave is the '`' key above the tab)
+# using fictx shotkey "ctrl+;" get from xclip
+bindsym $mod+grave exec --no-startup-id emoji_picker
+
+# record audio and video
+bindsym $mod+Print exec --no-startup-id recordav
+bindsym $mod+Pause exec --no-startup-id recordav kill
+
+# screen capture
+bindsym Shift+Print exec --no-startup-id maimpick
+
+# open file manager
+bindsym $mod+e exec --no-startup-id xterm -geometry 150x30 -fs 55 -e ranger
