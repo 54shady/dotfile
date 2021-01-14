@@ -155,8 +155,8 @@ assign [class="VirtualBox"] $workspace4
 assign [class="Vlc"] $workspace5
 
 # switch to near workspace
-bindsym $mod+Tab workspace next
-bindsym mod1+Tab workspace prev
+#bindsym $mod+Tab workspace next
+#bindsym mod1+Tab workspace prev
 
 set $workspace1 ""
 set $workspace2 ""
