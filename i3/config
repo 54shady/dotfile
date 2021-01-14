@@ -154,9 +154,9 @@ assign [class="VirtualBox"] $workspace4
 # bind vlc to workspace5
 assign [class="Vlc"] $workspace5
 
-# switch to near workspace
-#bindsym $mod+Tab workspace next
-#bindsym mod1+Tab workspace prev
+# force alt+tab and win+tab to no operation
+bindsym $mod+Tab nop
+bindsym mod1+Tab nop
 
 set $workspace1 ""
 set $workspace2 ""
