@@ -59,7 +59,8 @@ bindsym $mod+m bar mode toggle
 # new window
 new_window none
 new_float normal
-hide_edge_borders both
+#hide_edge_borders both
+default_border pixel 3
 
 # window colors
 #  class                 border   backgr.  text  indicator  child_border
@@ -236,6 +237,13 @@ bindsym $mod+Right focus right
 # bindsym $mod+$mod4+p focus parent
 
 ## mpc hotkey for mpd ##
+# playlist
+#
+# cd ~/Music
+# find * -iname "*.mp3" | sort > ~/.config/mpd/playlists/playlist.m3u
+# mpc clear playlist
+# mpc load playlist
+#
 # toggle audio pause
 bindsym $mod+p exec --no-startup-id "mpc toggle"
 # change to next/previous track
