@@ -43,6 +43,11 @@ if [ -f ~/.dotfile/alicst ]; then
 	. ~/.dotfile/alicst
 fi
 
+# custome path
+if [ -f ~/.dotfile/cpath ]; then
+	. ~/.dotfile/cpath
+fi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -95,16 +100,14 @@ normal=$'\[\e[m\]'
 PS1="$red[\W$yellow\$git_branch$red]$ $normal"
 complete -cf sudo
 
-# add for tools and utils
-export PATH=$PATH:~/tools:~/holdall
-
 # make normal user can excute the sbin tools
 export PATH=$PATH:/sbin:/usr/sbin
 
 # global variables
 export EDITOR=/usr/bin/vim
+export TERMINAL=/usr/bin/st
 export LANG="en_US.UTF-8"
-BROWSER="qutebrowser"
+export BROWSER=/usr/bin/qutebrowser
 
 # for record audio and video icon display
 export STATUSBAR="i3blocks"
@@ -122,11 +125,6 @@ if [[ -z "$TMUX" && $(tty) == /dev/pts/0 ]] ;then
         tmux attach-session -t "$ID" # if available attach to it
     fi
 fi
-
-# strace virt-inspector something.img
-# equery f libguestfs-appliance
-# bugfix for libguestfs
-LIBGUESTFS_PATH="/usr/share/guestfs/appliance"
 
 # history settings
 export HISTCONTROL=ignoredups
