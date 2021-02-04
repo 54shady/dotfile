@@ -25,6 +25,11 @@ alias vd='vimdiff -S ~/.vim/colors/simplifysimplify-dark.vim'
 alias vi='vim'
 alias g='vim -t'
 
+# alias for toggle mouse left/right button
+# xev to checkout mouse button(or "xmodmap -pp")
+alias ml="xmodmap -e 'pointer = 3 2 1'"
+alias mr="xmodmap -e 'pointer = 1 2 3'"
+
 alias gp='grep --colour=auto --exclude=tags --exclude-dir=*.git --exclude=*.swp'
 alias tm='tmux attach-session -t zeroway'
 alias minicom='sudo minicom'
