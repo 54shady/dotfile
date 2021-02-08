@@ -97,5 +97,6 @@ getmail
 msmtp
 
 	ln -s ~/.dotfile/dot_msmtprc ~/.msmtprc
+	chmod 600 ~/.msmtprc
 	sed -i 's/name@server/demo@163.com/' ~/.dotfile/dot_msmtprc
 	sed -i 's/pass-for-demo/mypass/' ~/.dotfile/dot_msmtprc
