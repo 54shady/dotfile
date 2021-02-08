@@ -88,11 +88,20 @@ mutt
 	sed -i 's/yournamegoeshere/realname/' ~/.dotfile/dot_muttrc
 	sed -i 's/name@server/demo@163.com/' ~/.dotfile/dot_muttrc
 
-getmail
+getmail(执行getmail收取邮件 可以写入crontab)
 
 	ln -s ~/.dotfile/getmail ~/.getmail
 	sed -i 's/name@server/demo@163.com/' ~/.dotfile/getmail/getmailrc
 	sed -i 's/pass-for-demo/mypass/' ~/.dotfile/getmail/getmailrc
+
+使用sys-process/cronie来定时执行
+
+	sudo crond
+	crontab -e
+
+每一分钟收取一次邮件
+
+	* * * * * /usr/bin/getmail &> /dev/null
 
 msmtp
 
