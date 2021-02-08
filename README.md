@@ -74,3 +74,28 @@ Translate using youdao online dictionary
 
 	$ t hello world
 	$ t 'have a nice day'
+
+## MailBox setup
+
+mail info
+
+	name: demo@163.com
+	password: mypass
+
+mutt
+
+	ln -s ~/.dotfile/dot_muttrc ~/.muttrc
+	sed -i 's/yournamegoeshere/realname/' ~/.dotfile/dot_muttrc
+	sed -i 's/name@server/demo@163.com/' ~/.dotfile/dot_muttrc
+
+getmail
+
+	ln -s ~/.dotfile/getmail ~/.getmail
+	sed -i 's/name@server/demo@163.com/' ~/.dotfile/getmail/getmailrc
+	sed -i 's/pass-for-demo/mypass/' ~/.dotfile/getmail/getmailrc
+
+msmtp
+
+	ln -s ~/.dotfile/dot_msmtprc ~/.msmtprc
+	sed -i 's/name@server/demo@163.com/' ~/.dotfile/dot_msmtprc
+	sed -i 's/pass-for-demo/mypass/' ~/.dotfile/dot_msmtprc
