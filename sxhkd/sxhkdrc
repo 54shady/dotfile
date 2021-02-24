@@ -1,7 +1,7 @@
 super + grave
 	emoji_picker
 
-mod4 + shift + l
+ctrl + alt + l
 	i3lock -c 000000
 
 F9
