@@ -1,0 +1,8 @@
+super + grave
+	emoji_picker
+
+mod4 + shift + l
+	i3lock -c 000000
+
+F9
+	vncviewer :0

@@ -11,6 +11,7 @@ programs=(
 "zathura"
 "mpv"
 "qutebrowser"
+"sxhkd"
 ".toprc"
 ".bashrc"
 ".gitconfig"
