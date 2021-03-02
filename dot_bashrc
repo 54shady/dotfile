@@ -117,14 +117,18 @@ export GTK_IM_MODULE=xim
 
 # auto run tmux when launch the shell
 # do not confilct with the tty1 when login
-if [[ -z "$TMUX" && $(tty) == /dev/pts/0 ]] ;then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-    if [[ -z "$ID" ]] ;then # open session with default config
-        tmux attach-session
-    else
-        tmux attach-session -t "$ID" # if available attach to it
+auto_run_tumx()
+{
+    if [[ -z "$TMUX" && $(tty) == /dev/pts/0 ]] ;then
+        ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+        if [[ -z "$ID" ]] ;then # open session with default config
+            tmux attach-session
+        else
+            tmux attach-session -t "$ID" # if available attach to it
+        fi
     fi
-fi
+}
+if ! type tmux >/dev/null 2>&1  ;then echo > /dev/null ; else auto_run_tumx; fi
 
 # history settings
 export HISTCONTROL=ignoredups
