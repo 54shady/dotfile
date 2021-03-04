@@ -18,6 +18,8 @@ alias gb='git branch'
 alias gch='git checkout HEAD'
 alias gcl='git config --list'
 alias gkl='git clone'
+alias gpl='git pull'
+alias gph='git push'
 
 # adb
 alias adbs='adb shell'
@@ -38,3 +40,7 @@ alias qimg='qemu-img'
 
 # ssh
 alias sshlt='sshpass -p "passwd" ssh root@ip'
+alias jb='jobs'
+
+# connect ftp server(serverip) via username and password port 21
+#alias shareftp='lftp -e "set ssl:verify-certificate false" -u username,password -p 21 serverip'
