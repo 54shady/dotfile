@@ -96,8 +96,14 @@ cyan=$'\[\e[1;36m\]'
 white=$'\[\e[1;37m\]'
 normal=$'\[\e[m\]'
 
-#PS1="$white[$magenta\u$white@$green\h$white:$cyan\w$yellow\$git_branch$white]\$ $normal"
-PS1="$red[\W$yellow\$git_branch$red]$ $normal"
+# Configure PS1, we now only using dwm as defalt WM
+if [ $(pgrep -x dwm) ]
+then
+	PS1="$red[\W$yellow\$git_branch$red]$ $normal"
+else
+	PS1="$red[`/sbin/ifconfig enp1s0 | sed -nr 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'` \W$yellow\$git_branch$red]# $normal"
+fi
+
 complete -cf sudo
 
 # make normal user can excute the sbin tools
